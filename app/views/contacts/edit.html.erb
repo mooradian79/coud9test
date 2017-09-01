@@ -1,0 +1,47 @@
+<h1>Edit Contact</h1>
+
+<% if @contact.errors.any? %>
+<h3>The following errors prevented the Contact from being edited. </h3>
+<ul> 
+  <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<%= form_for @contact do |f| %>
+
+<p>
+  <%= f.label :first_name %><br/>
+  <%= f.text_field :first_name %>
+</p>
+
+<p>
+  <%= f.label :last_name %><br/>
+  <%= f.text_field :last_name %>
+</p>
+
+<p>
+  <%= f.label :address %><br/>
+  <%= f.text_field :address %>
+</p>
+
+<p>
+  <%= f.label :city %><br/>
+  <%= f.text_field :city %>
+</p>
+
+<p>
+  <%= f.label :state %><br/>
+  <%= f.text_field :state %>
+</p>
+
+<p>
+  <%= f.label :zip %><br/>
+  <%= f.text_field :zip %>
+</p>
+
+<p> <%= f.submit %> </p>
+
+<% end %>
