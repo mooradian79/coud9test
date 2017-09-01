@@ -6,3 +6,5 @@
 <p>Address: <br/>
 <%= @contact.address %> <br/>
 <%= @contact.city %>, <%= @contact.state %> <%= @contact.zip %></p>
+<%= link_to "Edit this Contact", edit_contact_path(@contact) %> |
+<%= link_to "Back to Contacts List", contacts_path %>
