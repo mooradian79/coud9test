@@ -1,7 +1,7 @@
 <h1>Listing all Contacts</h1>
 
 <p>
-  <%= link_to "Create new article", new_contact_path %>
+ <%= link_to 'Home', root_path %> | <%= link_to "Create new contact", new_contact_path %>
 </p>
 <table>
   <tr>
@@ -21,8 +21,9 @@
        <td><%= contact.city %></td>
        <td><%= contact.state %></td>
        <td><%= contact.zip %> </td>
-       <td><%= link_to "edit", edit_contact_path(contact) %></td>
-       <td><%= link_to "show", contact_path(contact) %> </td>
+       <td><%= link_to "Edit", edit_contact_path(contact) %></td>
+       <td><%= link_to "Show", contact_path(contact) %> </td>
+       <td><%= link_to "Delete", contact_path(contact), method: :delete, data: {confirm: "Are you sure?"} %></td>
        
        
     </tr>
