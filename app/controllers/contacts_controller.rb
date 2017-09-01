@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
-  
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
   def index
     @contacts = Contact.all
   end
   
   def show
-    @contact = Contact.find(params[:id])
+    
   end
   
   def new
@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
   end
   
   def edit
-   @contact = Contact.find(params[:id])
+   
   end
   
   def create
@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
   end
   
   def update
-    @contact = Contact.find(params[:id])
+    
     
     if @contact.update(contact_params)
       flash[:notice] = "Contact was updated successfully."
@@ -43,7 +43,7 @@ class ContactsController < ApplicationController
   end
   
   def destroy
-    @contact = Contact.find(params[:id])
+    
     @contact.destroy
     flash[:notice] = "Contact was successfully destroyed."
     
@@ -51,6 +51,10 @@ class ContactsController < ApplicationController
   end
   
   private
+  
+  def set_contact
+    @contact = Contact.find(params[:id])
+  end
   
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :address, :city, :state, :zip)
