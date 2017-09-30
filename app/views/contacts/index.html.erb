@@ -1,34 +1,38 @@
-<h1>Listing all Contacts</h1>
+<h1 align="center">Contacts</h1>
 
 <p>
- <%= link_to 'Home', root_path %> | <%= link_to "Create new contact", new_contact_path %>
+  <%= link_to "Create new contact", new_contact_path, class: "btn btn-xs btn-success" %>
 </p>
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-  </tr>
- 
+<div class="row">
+  <div class="col-xs-11">
+    <table class="table table-striped">
+        <div class="contact-headers">
+      <tr>
+          <th>Contact Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+      </tr>
+        </div>
     <% @contacts.each do |contact| %>
+       <div class="contact-body">
      <tr>
-       <td><%= contact.first_name %></td>
-       <td><%= contact.last_name %></td>
+       <td><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact) %></td>
+      
        <td><%= contact.address %></td>
        <td><%= contact.city %></td>
        <td><%= contact.state %></td>
-       <td><%= contact.zip %> </td>
-       <td><%= link_to "Edit", edit_contact_path(contact) %></td>
-       <td><%= link_to "Show", contact_path(contact) %> </td>
-       <td><%= link_to "Delete", contact_path(contact), method: :delete, data: {confirm: "Are you sure?"} %></td>
+       <td><%= contact.zip %> </td> 
        
        
     </tr>
+    </div>
+    </div>
     
     <% end %>
   
   
 </table>
+
+</div>
