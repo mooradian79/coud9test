@@ -1,10 +1,20 @@
-<h1>Showing selected article.</h1>
+<h2 align="center"><%= @contact.first_name %> <%= @contact.last_name %> </h2> <br/>
 
-<p>First Name: <%= @contact.first_name %></p>
-<p>Last Name: <%= @contact.last_name %></p><br />
+<div class="well col-md-10 col-md-offset-2">
+  <h4 class="address-label"><strong>Address:</strong></h4>
+  
 
-<p>Address: <br/>
 <%= @contact.address %> <br/>
 <%= @contact.city %>, <%= @contact.state %> <%= @contact.zip %></p>
-<%= link_to "Edit this Contact", edit_contact_path(@contact) %> |
-<%= link_to "Back to Contacts List", contacts_path %>
+ 
+  
+<div class="contact-actions">
+<%= link_to "Edit this Contact", edit_contact_path(@contact), class: "btn btn-xs btn-primary" %> 
+<%= link_to "Delete this Contact", contact_path(@contact), 
+          method: :delete, data: { confirm: "Are you sure you want to delete this contact?"},
+          class: "btn btn-xs btn-danger" %>
+<%= link_to "View All Contacts", contacts_path, class: "btn btn-xs btn-success" %>
+
+</div>
+
+</div>
